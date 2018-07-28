@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '../../../../node_modules/@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsersService } from '../../shared/services/users.service';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'mm-login',
@@ -9,7 +11,9 @@ import { FormGroup, FormControl, Validators } from '../../../../node_modules/@an
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  constructor() { }
+  constructor(
+    private userService: UsersService
+  ) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -18,6 +22,8 @@ export class LoginComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.form);
+    const formData = this.form.value;
+    this.userService.getUserByEmail(formData.email)
+      .subscribe((user: User) => console.log(user));
   }
 }

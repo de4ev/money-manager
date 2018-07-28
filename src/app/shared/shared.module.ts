@@ -1,4 +1,4 @@
-import { NgModule } from '../../../node_modules/@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
