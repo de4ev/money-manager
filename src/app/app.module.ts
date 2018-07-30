@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
+import { HttpModule } from '../../node_modules/@angular/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { UsersService } from './shared/services/users.service';
   imports: [
     BrowserModule,
     AuthModule,
+    HttpModule,
     AppRoutingModule
   ],
   providers: [UsersService],
