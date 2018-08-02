@@ -5,6 +5,18 @@
       "email": "decev.v@gmail.com",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "test@mail.ru",
+      "password": "111111",
+      "name": "1222",
+      "id": 2
+    },
+    {
+      "email": "12@sm.21",
+      "password": "1222112",
+      "name": "3rwfd",
+      "id": 3
     }
   ],
   "bill": {
