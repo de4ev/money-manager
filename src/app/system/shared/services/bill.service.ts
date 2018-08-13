@@ -3,15 +3,17 @@ import { Http, Response } from '../../../../../node_modules/@angular/http';
 import { Observable } from '../../../../../node_modules/rxjs';
 import { Bill } from '../models/bill.model';
 import { map } from '../../../../../node_modules/rxjs/operators';
+import { BaseApi } from '../../../shared/core/base-api';
 
 @Injectable ()
-export class BillService {
+export class BillService extends BaseApi {
     constructor(
-        private http: Http
-    ) {}
+        public http: Http
+    ) {
+        super(http);
+    }
     getBill(): Observable<Bill> {
-        return this.http.get('http://localhost:3000/bill')
-        .pipe(map((response: Response) => response.json()));
+        return this.get('bill');
     }
     getCurrency(base: string = 'RUB'): Observable<any> {
         return this.http.get(`https://exchangeratesapi.io/api/latest?base=${base}`)
