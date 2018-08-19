@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CategoriesService } from '../../shared/services/categories.service';
 import { Category } from '../../shared/models/category.model';
@@ -8,14 +8,13 @@ import { Category } from '../../shared/models/category.model';
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.sass']
 })
-export class AddCategoryComponent implements OnInit {
+export class AddCategoryComponent {
+
+  @Output() onCategoryAdd = new EventEmitter<Category>();
 
   constructor(
     private categoriesService: CategoriesService
   ) { }
-
-  ngOnInit() {
-  }
 
   onSubmit(form: NgForm) {
     let { name, capacity } = form.value;
@@ -27,7 +26,7 @@ export class AddCategoryComponent implements OnInit {
       .subscribe((category: Category) => {
         form.reset();
         form.form.patchValue({capacity: 1});
-        console.log(category)
+        this.onCategoryAdd.emit(category)
       })
   }
 }

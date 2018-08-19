@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../shared/models/category.model';
+import { CategoriesService } from '../shared/services/categories.service';
 
 @Component({
   selector: 'mm-records-page',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordsPageComponent implements OnInit {
 
-  constructor() { }
+  categories: Category[] = [];
+  isLoaded = false;
 
-  ngOnInit() {
+  constructor(
+    private categoriesService: CategoriesService
+
+  ) { }
+
+  ngOnInit () {
+    this.categoriesService.getCategories()
+      .subscribe((categories) => {
+        this.categories = categories;
+        this.isLoaded = true;
+      })
   }
 
+  newCategoryAdded(category: Category) {
+    this.categories.push(category)
+  }
 }

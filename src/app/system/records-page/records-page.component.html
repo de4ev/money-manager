@@ -5,18 +5,21 @@
   </h3>
 </div>
 
-<section class="section">
+<section class="section text-center" *ngIf="!isLoaded">
+Loading...
+</section>
+<section class="section" *ngIf="isLoaded">
   <div class="row">
     <div class="col-md-6">
       <mm-add-event></mm-add-event>
     </div>
     <div class="col-md-6">
-      <mm-add-category></mm-add-category>
+      <mm-add-category (onCategoryAdd)="newCategoryAdded($event)"></mm-add-category>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <mm-add-category></mm-add-category>
+      <mm-edit-category [categories]="categories"></mm-edit-category>
     </div>
   </div>
   
