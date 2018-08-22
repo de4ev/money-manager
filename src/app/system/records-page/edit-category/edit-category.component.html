@@ -5,10 +5,20 @@
     </div>
   </div>
   <div class="card-block">
+    <div 
+      class="alert alert-{{message.type}}"
+      *ngIf="message.text"
+    >{{message.text}}</div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
         <label class="control-label" for="e-select-category">Select category</label>
-        <select id="e-select-category" class="form-control">
+        <select 
+          id="e-select-category" 
+          class="form-control"
+          [(ngModel)]="currentCategoryId"
+          (change)="onCategoryChange()"
+          [ngModelOptions]="{standalone: true}"
+        >
           <option 
             *ngFor="let c of categories"
             [value]="c.id"
@@ -29,7 +39,8 @@
           required
           #name=ngModel
           ngModel
-          name="category-name"
+          name="name"
+          [ngModel]="currentCategory.name"
         >
         <span 
           class="form-help-text"
@@ -45,18 +56,22 @@
           type="number"
           id="e-category-value" 
           class="form-control"
-          [ngModel]="1"
-          name="category-capacity"
+          name="capacity"
           #capacity="ngModel"
           required
           min="1"
+          [ngModel]="currentCategory.capacity"
         >
         <span 
           *ngIf="capacity.invalid && capacity.touched"
           class="form-help-text"
         >Limit must be greater than 1</span>
       </div>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button 
+        type="submit" 
+        class="btn btn-primary"
+        [disabled]="f.invalid"
+      >Save</button>
     </form>
   </div>
 </div>

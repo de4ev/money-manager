@@ -45,7 +45,11 @@
             class="form-help-text"
           >Limit must be greater than 1</span>
         </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="f.invalid"
+        >Add</button>
       </form>
     </div>
   </div>

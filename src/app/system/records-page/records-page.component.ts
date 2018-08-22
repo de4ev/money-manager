@@ -28,4 +28,9 @@ export class RecordsPageComponent implements OnInit {
   newCategoryAdded(category: Category) {
     this.categories.push(category)
   }
+  categoryWasEdited(category: Category) {
+    const index = this.categories
+      .findIndex(c => c.id === category.id);
+    this.categories[index] = category;
+  }
 }

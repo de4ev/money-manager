@@ -19,7 +19,10 @@ Loading...
   </div>
   <div class="row">
     <div class="col-md-6">
-      <mm-edit-category [categories]="categories"></mm-edit-category>
+      <mm-edit-category 
+        [categories]="categories"
+        (onCategoryEdit)="categoryWasEdited($event)"
+      ></mm-edit-category>
     </div>
   </div>
   
