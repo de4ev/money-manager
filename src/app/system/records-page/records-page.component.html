@@ -11,7 +11,7 @@ Loading...
 <section class="section" *ngIf="isLoaded">
   <div class="row">
     <div class="col-md-6">
-      <mm-add-event></mm-add-event>
+      <mm-add-event [categories]="categories"></mm-add-event>
     </div>
     <div class="col-md-6">
       <mm-add-category (onCategoryAdd)="newCategoryAdded($event)"></mm-add-category>

@@ -4,13 +4,7 @@
       "email": "test@mail.ru",
       "password": "111111",
       "name": "admin",
-      "id": 2
-    },
-    {
-      "email": "test2@mail.ru",
-      "password": "111111",
-      "name": "name",
-      "id": 3
+      "id": 1
     }
   ],
   "bill": {
@@ -32,16 +26,6 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
-    },
-    {
-      "name": "test",
-      "capacity": 264,
-      "id": 4
-    },
-    {
-      "name": "test2",
-      "capacity": 13335,
-      "id": 5
     }
   ],
   "events": [
