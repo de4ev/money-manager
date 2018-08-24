@@ -39,7 +39,7 @@
     },
     {
       "id": 2,
-      "type": "outcome",
+      "type": "expenditure",
       "amount": 1300,
       "category": 1,
       "date": "13.06.2017 19:49:02",
@@ -54,7 +54,7 @@
       "description": "Поход в окей с баллами. Бесплатная еда"
     },
     {
-      "type": "outcome",
+      "type": "expenditure",
       "amount": 2470,
       "category": 2,
       "date": "17.06.2017 14:00:58",
@@ -62,7 +62,7 @@
       "description": "Закупка на неделю"
     },
     {
-      "type": "outcome",
+      "type": "expenditure",
       "amount": 4000,
       "category": 3,
       "date": "10.06.2017 14:01:58",

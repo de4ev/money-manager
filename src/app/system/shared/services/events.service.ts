@@ -7,6 +7,7 @@ import { MMEvent } from "../models/event.model";
 
 @Injectable()
 export class EventsService extends BaseApi {
+
     constructor(
         public http: Http
     ) {
@@ -15,5 +16,9 @@ export class EventsService extends BaseApi {
 
     addEvent(event: MMEvent): Observable<MMEvent> {
         return this.post('events', event)
+    }
+
+    getEventsByType(type: string): Observable<MMEvent[]>{
+        return this.get(`events?type=${type}`)
     }
 }
