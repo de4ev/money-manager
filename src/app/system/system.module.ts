@@ -20,6 +20,10 @@ import { AddEventComponent } from './records-page/add-event/add-event.component'
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
 import { CategoriesService } from './shared/services/categories.service';
 import { EventsService } from './shared/services/events.service';
+import { HistoryChartComponent } from './history-page/history-chart/history-chart.component';
+import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
+import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
 
 @NgModule({
     imports: [
@@ -41,7 +45,11 @@ import { EventsService } from './shared/services/events.service';
         MomentPipe,
         AddCategoryComponent,
         AddEventComponent,
-        EditCategoryComponent
+        EditCategoryComponent,
+        HistoryChartComponent,
+        HistoryDetailComponent,
+        HistoryEventsComponent,
+        HistoryFilterComponent
     ],
     providers: [
         BillService,
