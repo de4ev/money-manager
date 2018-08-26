@@ -17,7 +17,9 @@ export class EventsService extends BaseApi {
     addEvent(event: MMEvent): Observable<MMEvent> {
         return this.post('events', event)
     }
-
+    getEvents(): Observable<MMEvent[]> {
+        return this.get('events')
+    }
     getEventsByType(type: string): Observable<MMEvent[]>{
         return this.get(`events?type=${type}`)
     }

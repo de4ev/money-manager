@@ -5,8 +5,15 @@
   </h3>
 </div>
 
-<mm-history-chart [data]="chartData"></mm-history-chart>
+<div *ngIf="!isLoaded" class="text-center">Loading...</div>
 
-<mm-history-events></mm-history-events>
+<div *ngIf="isLoaded">
+  <mm-history-chart [data]="chartData"></mm-history-chart>
 
-<mm-history-filter></mm-history-filter>
+  <mm-history-events 
+    [categories]="categories"
+    [events]="events"
+  ></mm-history-events>
+
+  <mm-history-filter></mm-history-filter>
+</div>

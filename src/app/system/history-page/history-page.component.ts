@@ -21,25 +21,29 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   categories: Category[] = [];
   events: MMEvent[] = [];
+  expEvents: MMEvent[] = [];
   isLoaded= false;
   chartData= [];
 
   ngOnInit() {
     this.sub1 = combineLatest(
       this.categoriesService.getCategories(),
-      this.eventService.getEventsByType('expenditures')
-    ).subscribe((data: [Category[], MMEvent[]]) => {
+      this.eventService.getEventsByType('expenditure'),
+      this.eventService.getEvents()
+    ).subscribe((data: [Category[], MMEvent[], MMEvent[]]) => {
       this.categories = data[0];
-      this.events = data[1];
+      this.expEvents = data[1];
+      this.events = data[2];
+      
+      this.calculateChartData();
+      this.isLoaded = true;
     })
-    this.isLoaded = true;
-    this.calculateChartData()
   }
 
   calculateChartData(): void {
     this.chartData = [];
     this.categories.forEach((c) => {
-      const categoryEvents = this.events.filter((c) => c.category === c.id)
+      const categoryEvents = this.expEvents.filter((cat) => cat.category === c.id);
       this.chartData.push({
         name: c.name,
         value: categoryEvents.reduce((total, e) => {
