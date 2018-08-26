@@ -8,7 +8,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 98950,
     "currency": "RUB"
   },
   "categories": [
@@ -68,6 +68,14 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "expenditure",
+      "amount": 1050,
+      "category": 1,
+      "date": "27.08.2018 00:06:03",
+      "description": "Test",
+      "id": 6
     }
   ]
 }
