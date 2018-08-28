@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
 
-import { BaseApi } from "../../../shared/core/base-api";
-import { MMEvent } from "../models/event.model";
+import { BaseApi } from '../../../shared/core/base-api';
+import { MMEvent } from '../models/event.model';
 
 @Injectable()
 export class EventsService extends BaseApi {
@@ -11,16 +11,19 @@ export class EventsService extends BaseApi {
     constructor(
         public http: Http
     ) {
-        super(http)
+        super(http);
     }
 
     addEvent(event: MMEvent): Observable<MMEvent> {
-        return this.post('events', event)
+        return this.post('events', event);
     }
     getEvents(): Observable<MMEvent[]> {
-        return this.get('events')
+        return this.get('events');
     }
-    getEventsByType(type: string): Observable<MMEvent[]>{
-        return this.get(`events?type=${type}`)
+    getEventById(id: string): Observable<MMEvent> {
+        return this.get(`events/${id}`);
+    }
+    getEventsByType(type: string): Observable<MMEvent[]> {
+        return this.get(`events?type=${type}`);
     }
 }
