@@ -1,8 +1,8 @@
-<div class="modal fade">
+<div class="modal fade in">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close">
+          <button type="button" class="close" (click)="closeFilter()">
             <span>×</span>
           </button>
           <h4 class="modal-title">Filter</h4>
@@ -10,31 +10,45 @@
         <div class="modal-body">
           <div class="form-group">
             <label class="control-label" for="period">Select a period</label>
-            <select class="form-control" id="period">
-              <option>type</option>
+            <select class="form-control" id="period" [(ngModel)]="selectedPeriod">
+              <option *ngFor="let p of timePeriods" [value]="p.type">{{ p.label }}</option>
             </select>
           </div>
           <div class="form-group">
             <label class="control-label">Select operation type</label>
             <div>
-              <label>
-                <input class="checkbox" type="checkbox">
-                <span>sfd</span>
+              <label *ngFor="let t of types">
+                <input 
+                  class="checkbox" 
+                  type="checkbox" 
+                  [value]="t.type" 
+                  (change)="handleChangeType($event.target)"
+                >
+                <span>{{ t.label }}</span>
               </label>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label">Select a category</label>
             <div>
-              <label>
-                <input class="checkbox" type="checkbox">
-                <span>dfs</span>
+              <label *ngFor="let c of categories">
+                <input 
+                  class="checkbox" 
+                  type="checkbox"
+                  [value]="c.id"
+                  (change)="handleChangeCategory($event.target)"
+                >
+                <span>{{ c.name }}</span>
               </label>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary">Cancel</button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button 
+              type="button" 
+              class="btn btn-secondary"  
+              (click)="closeFilter()"
+              >Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="applyFilter()">Apply</button>
           </div>
         </div>
       </div>

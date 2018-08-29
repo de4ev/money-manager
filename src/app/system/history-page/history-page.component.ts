@@ -24,6 +24,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   expEvents: MMEvent[] = [];
   isLoaded= false;
   chartData= [];
+  isFilterVisible = false;
 
   ngOnInit() {
     this.sub1 = combineLatest(
@@ -52,6 +53,22 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         }, 0)
       })
     });
+  }
+
+  private toggleFilterVisibility(dir: boolean) {
+    this.isFilterVisible = dir;
+  }
+
+  openFilter() {
+    this.toggleFilterVisibility(true);
+  }
+
+  onFilterApply(filterData) {
+    console.log(filterData);
+  }
+
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
   }
 
   ngOnDestroy() {
