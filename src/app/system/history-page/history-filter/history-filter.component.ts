@@ -16,6 +16,7 @@ export class HistoryFilterComponent {
     { type: 'd', label: 'Day' },
     { type: 'w', label: 'Week' },
     { type: 'M', label: 'Month' },
+    { type: 'Y', label: 'Year' },
   ]
 
   selectedPeriod = 'd';
@@ -39,15 +40,15 @@ export class HistoryFilterComponent {
       this[field].indexOf(value) === -1 ? this[field].push(value) : null;
     } else {
       this[field] = this[field].filter((i) => i !== value)
-    } 
+    };
   }
 
   handleChangeType({checked, value}) {
-    this.calculateInputParams('selectedTypes', checked, value)
+    this.calculateInputParams('selectedTypes', checked, value);
   }
 
   handleChangeCategory({checked, value}) {
-    this.calculateInputParams('selectedCategories', checked, value)
+    this.calculateInputParams('selectedCategories', checked, value);
   }
   
   applyFilter() {
