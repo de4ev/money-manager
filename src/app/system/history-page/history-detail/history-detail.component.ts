@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class HistoryDetailComponent implements OnInit, OnDestroy {
   s1: Subscription;
-  isLoaded: false;
+  isLoaded = false;
   event: MMEvent;
   category: Category;
 

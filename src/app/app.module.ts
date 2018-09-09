@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './shared/services/auth.service';
-import { SystemModule } from './system/system.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { SystemModule } from './system/system.module';
     AuthModule,
     HttpModule,
     AppRoutingModule,
-    SystemModule,
     BrowserAnimationsModule
   ],
   providers: [UsersService, AuthService],
