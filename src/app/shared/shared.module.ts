@@ -5,7 +5,15 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule ({
-    imports: [ReactiveFormsModule, FormsModule, NgxChartsModule],
-    exports: [ReactiveFormsModule, FormsModule, NgxChartsModule]
+    imports: [
+        ReactiveFormsModule, 
+        FormsModule, 
+        NgxChartsModule
+    ],
+    exports: [
+        ReactiveFormsModule, 
+        FormsModule, 
+        NgxChartsModule
+    ]
 })
 export class SharedModule {}
