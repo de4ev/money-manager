@@ -17,7 +17,9 @@
   </div>
 </div>
 
-<div *ngIf="!isLoaded" class="text-center">Loading...</div>
+<div *ngIf="!isLoaded" class="text-center">
+  <mm-loader></mm-loader>
+</div>
 
 <div *ngIf="isLoaded">
   <mm-history-chart [data]="chartData"></mm-history-chart>

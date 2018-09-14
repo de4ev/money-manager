@@ -11,7 +11,7 @@
 </div>
 <section class="section">
   <div class="row text-center" *ngIf="!isLoaded">
-    Loading...
+    <mm-loader></mm-loader>
   </div>
   <div class="row" *ngIf="isLoaded">
     <mm-bill-card [bill]="bill" [currency]="currency"></mm-bill-card>
